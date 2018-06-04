@@ -121,6 +121,7 @@ class Controls extends Component {
       loading,
       logo,
       more,
+      onLogoPress,
       onMorePress,
       title,
       progress,
@@ -138,6 +139,7 @@ class Controls extends Component {
           <TopBar
             title={title}
             logo={logo}
+            onLogoPress={() => onLogoPress()}
             more={more}
             onMorePress={() => onMorePress()}
             theme={{ title: theme.title, more: theme.more }}

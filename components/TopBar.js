@@ -52,7 +52,7 @@ const TopBar = (props) => {
     <LinearGradient colors={['rgba(0,0,0,0.75)', 'rgba(0,0,0,0)']} style={styles.container}>
       <View style={styles.row}>
         { logo &&  <TouchableWithoutFeedback onPress={onLogoPress} >
-          <Image style={styles.logo} resizeMode="contain" source={logo} />
+          <Image resizeMode='center'  style={styles.logo} resizeMode="contain" source={logo} />
         </TouchableWithoutFeedback>}
         <Text
           style={[styles.title, { color: theme.title }]}

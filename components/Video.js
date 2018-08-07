@@ -470,7 +470,6 @@ Video.propTypes = {
   rate: PropTypes.number,
   volume: PropTypes.number,
   lockRatio: PropTypes.number,
-  logo: PropTypes.number,
   title: PropTypes.string,
   theme: PropTypes.object,
   resizeMode: PropTypes.string

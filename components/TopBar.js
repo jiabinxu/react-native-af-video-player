@@ -6,18 +6,30 @@ import {
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
-  Image
+  Image,
+  Dimensions,
+  Platform,
 } from 'react-native'
 
 import LinearGradient from 'react-native-linear-gradient'
 import { ToggleIcon } from './'
 import { checkSource } from './utils'
 
+
+const X_WIDTH = 375;
+const X_HEIGHT = 812;
+const screenW = Dimensions.get('window').width;
+const screenH = Dimensions.get('window').height;
+function isIphoneX() {
+  return (Platform.OS === 'ios' &&  ((screenH === X_HEIGHT && screenW === X_WIDTH) || (screenH === X_WIDTH && screenW === X_HEIGHT)));
+}
+
 const backgroundColor = 'transparent'
 
 const styles = StyleSheet.create({
   container: {
-    height: 35,
+    height: 35 ,
+    marginTop: isIphoneX()?44:20,
     justifyContent: 'center'
   },
   row: {
@@ -50,7 +62,7 @@ const TopBar = (props) => {
     onLogoPress
   } = props
   return (
-    <LinearGradient colors={['rgba(0,0,0,0.75)', 'rgba(0,0,0,0)']} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.row}>
         { logo &&  <TouchableWithoutFeedback onPress={onLogoPress} >
           <Image resizeMode='center'  style={styles.logo} resizeMode="contain" source={logo} />
@@ -74,13 +86,12 @@ const TopBar = (props) => {
           />
         }
       </View>
-    </LinearGradient>
+    </View>
   )
 }
 
 TopBar.propTypes = {
   title: PropTypes.string.isRequired,
-  logo: PropTypes.string.isRequired,
   more: PropTypes.bool.isRequired,
   onMorePress: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired

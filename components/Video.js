@@ -75,6 +75,7 @@ class Video extends Component {
   componentDidMount() {
     Dimensions.addEventListener('change', this.onRotated)
     BackHandler.addEventListener('hardwareBackPress', this.BackHandler)
+    this.controls.showControls()
   }
 
   componentWillUnmount() {
@@ -169,22 +170,22 @@ class Video extends Component {
 
   onError(msg) {
     this.props.onError(msg)
-    const { error } = this.props
-    this.setState({ renderError: true }, () => {
-      let type
-      switch (true) {
-        case error === false:
-          type = error
-          break
-        case typeof error === 'object':
-          type = Alert.alert(error.title, error.message, error.button, error.options)
-          break
-        default:
-          type = Alert.alert('Oops!', 'There was an error playing this video, please try again later.', [{ text: 'Close' }])
-          break
-      }
-      return type
-    })
+    // const { error } = this.props
+    // this.setState({ renderError: true }, () => {
+    //   let type
+    //   switch (true) {
+    //     case error === false:
+    //       type = error
+    //       break
+    //     case typeof error === 'object':
+    //       type = Alert.alert(error.title, error.message, error.button, error.options)
+    //       break
+    //     default:
+    //       type = Alert.alert('Oops!', 'There was an error playing this video, please try again later.', [{ text: 'Close' }])
+    //       break
+    //   }
+    //   return type
+    // })
   }
 
   BackHandler() {

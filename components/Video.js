@@ -59,7 +59,7 @@ class Video extends Component {
       muted: false,
       fullScreen: false,
       inlineHeight: Win.width * 0.5625,
-      loading: false,
+      loading: true,
       duration: 0,
       progress: 0,
       currentTime: 0,
@@ -386,22 +386,22 @@ class Video extends Component {
           {...checkSource(url)}
           paused={paused}
           resizeMode={resizeMode}
-          repeat={loop}
+          // repeat={loop}
           style={fullScreen ? styles.fullScreen : inline}
           ref={(ref) => { this.player = ref }}
-          rate={rate}
-          volume={volume}
-          muted={muted}
-          playInBackground={playInBackground} // Audio continues to play when app entering background.
-          playWhenInactive={playWhenInactive} // [iOS] Video continues to play when control or notification center are shown.
+          // rate={rate}
+          // volume={volume}
+          // muted={muted}
+          // playInBackground={playInBackground} // Audio continues to play when app entering background.
+          // playWhenInactive={playWhenInactive} // [iOS] Video continues to play when control or notification center are shown.
           // progressUpdateInterval={250.0}          // [iOS] Interval to fire onProgress (default to ~250ms)
-          onLoadStart={() => this.onLoadStart()} // Callback when video starts to load
+          // onLoadStart={() => this.onLoadStart()} // Callback when video starts to load
           onLoad={e => this.onLoad(e)} // Callback when video loads
           onProgress={e => this.progress(e)} // Callback every ~250ms with currentTime
-          onEnd={() => this.onEnd()}
-          onError={e => this.onError(e)}
+          // onEnd={() => this.onEnd()}
+          // onError={e => this.onError(e)}
           // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
-          onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
+          // onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
         />
         <Controls
           ref={(ref) => { this.controls = ref }}

@@ -346,6 +346,7 @@ class Video extends Component {
       rate,
       style,
       volume,
+      handlePlay,
       placeholder,
       theme,
       onTimedMetadata,
@@ -407,7 +408,7 @@ class Video extends Component {
           ref={(ref) => { this.controls = ref }}
           toggleMute={() => this.toggleMute()}
           toggleFS={() => this.toggleFS()}
-          togglePlay={() => this.togglePlay()}
+          togglePlay={handlePlay}
           paused={paused}
           muted={muted}
           fullscreen={fullScreen}
